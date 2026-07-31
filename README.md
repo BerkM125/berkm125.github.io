@@ -1,7 +1,7 @@
 # berkm125.github.io
 
-Personal site for Berkan Mertan, built as a small Windows desktop simulation with
-a OneNote-style notebook ("Berkan @ UW") as the app window.
+Personal website, built as a small Windows desktop simulation with a
+OneNote-style notebook ("Berkan @ UW") as the app window.
 
 Vanilla TypeScript + Vite, no framework. Everything is self-contained — logos and
 photos are served from `public/`, and the key-clack sound is synthesized at
