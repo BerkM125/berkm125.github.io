@@ -282,8 +282,8 @@ app.innerHTML = `
 /* ---------- Theme: fonts, palettes, dark mode ---------- */
 
 const rootEl = document.documentElement;
-// v2 key so the new Consolas default applies even if an older choice was stored
-let currentFont = localStorage.getItem("font-v2") ?? "mono";
+// v3 key so the Segoe UI default applies even if an older choice was stored
+let currentFont = localStorage.getItem("font-v3") ?? "segoe";
 let currentPalette = localStorage.getItem("palette") ?? "onenote";
 let darkMode = localStorage.getItem("theme") === "dark";
 
@@ -310,7 +310,7 @@ function applyFont(id: string): void {
   currentFont = font.id;
   rootEl.style.setProperty("--font-ui", font.body);
   rootEl.style.setProperty("--font-title", font.title);
-  localStorage.setItem("font-v2", font.id);
+  localStorage.setItem("font-v3", font.id);
   syncRibbonUI();
 }
 
