@@ -286,7 +286,8 @@ const rootEl = document.documentElement;
 // v3 key so the Segoe UI default applies even if an older choice was stored
 let currentFont = localStorage.getItem("font-v3") ?? "segoe";
 let currentPalette = localStorage.getItem("palette") ?? "onenote";
-let darkMode = localStorage.getItem("theme") === "dark";
+// Dark is the default; only an explicit stored "light" opts out.
+let darkMode = (localStorage.getItem("theme") ?? "dark") === "dark";
 
 const fontComboLabel = app.querySelector<HTMLSpanElement>(".font-combo-label")!;
 

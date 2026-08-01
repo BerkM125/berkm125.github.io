@@ -779,10 +779,25 @@ body {
 
 .social-line {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 28px;
-  margin-top: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 22px;
   max-width: none;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-mark {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--ink);
+  transition: color 0.35s ease;
 }
 
 .social strong {
@@ -817,9 +832,9 @@ body {
 
 .xp {
   display: grid;
-  grid-template-columns: 116px minmax(0, 1fr);
-  gap: 24px;
-  padding-bottom: 30px;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 26px;
+  padding-bottom: 32px;
 }
 
 .xp-logo {
@@ -848,10 +863,10 @@ body {
 }
 
 .xp-org {
-  font-size: 17px;
+  font-size: 23px;
   font-weight: 600;
   color: var(--ink);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   text-decoration: none;
   border-bottom: none;
   transition: color 0.15s ease;
@@ -1601,8 +1616,8 @@ body {
 
   /* Work experience rows */
   .xp {
-    grid-template-columns: 74px minmax(0, 1fr);
-    gap: 14px;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 15px;
     padding-bottom: 26px;
   }
 
@@ -1618,7 +1633,7 @@ body {
   }
 
   .xp-org {
-    font-size: 15.5px;
+    font-size: 19px;
   }
 
   .xp-date {
@@ -1631,8 +1646,8 @@ body {
   }
 
   .social-line {
-    flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    margin-top: 20px;
   }
 
   /* Taskbar: drop the Start button, keep app + theme toggle */
@@ -1670,7 +1685,7 @@ body {
   }
 
   .xp {
-    grid-template-columns: 58px minmax(0, 1fr);
-    gap: 11px;
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 12px;
   }
 }
