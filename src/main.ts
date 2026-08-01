@@ -116,15 +116,12 @@ const app = document.querySelector<HTMLDivElement>("#app")!;
  * Commons): the notebook body with the cut-out "N", ruled page edge, and the
  * three section tabs. One silhouette path, so it recolors cleanly.
  */
-const ONENOTE_PATH =
-  "M 74.25,230.65433 6,218.51636 6.0025591,127.50818 6.0051182,36.5 73.752559,24.572764 C 111.01365,18.012785 142.2875,12.447801 143.25,12.206133 144.84145,11.806546 145,12.819188 145,23.383369 L 145,35 l 38.95295,0 c 26.41798,0 39.73709,0.357283 41.38973,1.110272 C 228.26779,37.443045 230,40.901226 230,45.408164 l 0,3.314059 5.87286,0.532532 c 6.90889,0.626476 10.36022,2.609303 12.54099,7.204935 2.33623,4.923255 2.31452,40.203135 -0.0278,45.13918 -1.48526,3.12994 -1.48526,3.67232 0,6.80226 2.23209,4.70379 2.36595,40.63365 0.16708,44.84887 -1.24605,2.38867 -1.24605,3.11133 0,5.5 2.17844,4.17606 2.06659,40.14175 -0.13929,44.79031 -2.16864,4.57006 -5.62704,6.578 -12.38521,7.19081 -5.34884,0.48502 -5.79205,0.72571 -6.88087,3.73678 -0.64008,1.7701 -2.30635,3.73895 -3.70283,4.37523 C 223.66155,219.6557 211.31302,220 183.95295,220 L 145,220 l 0,11.5 c 0,8.58872 -0.31644,11.47371 -1.25,11.39615 -0.6875,-0.0571 -31.9625,-5.56593 -69.5,-12.24182 z M 222,156.5 l 0,-55.5 8.17126,0 C 242.36063,101 242,101.66543 242,79.173753 242,56.354497 242.33929,57 230.34501,57 L 222,57 l 0,-7 0,-7 -38.5,0 -38.5,0 0,8.5 0,8.5 30,0 30,0 0,5 0,5 -30,0 -30,0 0,7.5 0,7.5 30,0 30,0 0,5 0,5 -30,0 -30,0 0,7.5 0,7.5 30,0 30,0 0,5 0,5 -30,0 -30,0 0,7.5 0,7.5 30,0 30,0 0,5 0,5 -30,0 -30,0 0,7.5 0,7.5 30,0 30,0 0,5 0,5 -30,0 -30,0 0,8.5 0,8.5 38.5,0 38.5,0 z m 18.17126,44.84501 C 241.81748,199.8552 242,197.84202 242,181.17375 242,159.78055 241.73053,159 234.34501,159 L 230,159 l 0,22 0,22 4.17126,0 c 2.47808,0 4.91357,-0.67179 6,-1.65499 z M 100,127.36408 100,85.728152 86.032144,87 85.766072,114.02207 85.5,141.04414 72,115.01359 58.5,88.98303 43.5,89.5 l 0,38 0,38 12.5,0.59543 0.0064,-26.79771 L 56.0128,112.5 70.376074,140 84.739349,167.5 100,169 z m 140.17126,23.98093 C 241.81748,149.8552 242,147.84202 242,131.17375 242,109.78055 241.73053,109 234.34501,109 L 230,109 l 0,22 0,22 4.17126,0 c 2.47808,0 4.91357,-0.67179 6,-1.65499 z";
-
-/** `mono` renders it flat white, for use against the colored title bar. */
-function oneNoteLogo(mono = false): string {
-  return `<svg class="onenote-logo" viewBox="0 0 256 256" aria-hidden="true">
-    <path fill="${mono ? "#fff" : "#7719aa"}" d="${ONENOTE_PATH}"/>
-  </svg>`;
-}
+/**
+ * The real Windows 11 / Microsoft 365 app icons, extracted from the local
+ * install (ONENOTE.EXE and imageres.dll) so they match the desktop exactly.
+ */
+const ONENOTE_ICON = `<img class="onenote-logo" src="/images/logos/onenote.png" alt="OneNote" />`;
+const RECYCLE_BIN_ICON = `<img class="bin-icon" src="/images/logos/recyclebin.png" alt="Recycle Bin" />`;
 
 /** Windows 11 logo: four flush square panes, official #0078d4. */
 const WINDOWS_LOGO = `<svg class="win-logo" viewBox="0 0 48.75 48.75" aria-hidden="true">
@@ -136,10 +133,6 @@ const WINDOWS_LOGO = `<svg class="win-logo" viewBox="0 0 48.75 48.75" aria-hidde
   </g>
 </svg>`;
 
-/** Microsoft Fluent UI "bin recycle" icon (MIT-licensed icon set). */
-const RECYCLE_BIN = `<svg class="bin-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <path fill="currentColor" d="M3.80337 5.59931C3.59559 3.67733 5.10137 2 7.03455 2H16.9649C18.8981 2 20.4038 3.67733 20.196 5.59932L18.6401 19.9918C18.5166 21.1342 17.5522 22 16.4031 22H7.59629C6.44725 22 5.48282 21.1342 5.35932 19.9918L3.80337 5.59931ZM5.30226 4.99743H18.6972C18.576 4.15965 17.8545 3.5 16.9649 3.5H7.03455C6.14494 3.5 5.42342 4.15965 5.30226 4.99743ZM11.7926 10.4094C11.8916 10.2614 12.1092 10.2614 12.2082 10.4094L12.8771 11.4092C13.1074 11.7535 13.5732 11.8459 13.9175 11.6155C14.2617 11.3852 14.3541 10.9194 14.1238 10.5751L13.455 9.57537C12.7619 8.53945 11.2389 8.53945 10.5459 9.57537L9.87706 10.5751C9.64674 10.9194 9.73912 11.3852 10.0834 11.6155C10.4277 11.8459 10.8935 11.7535 11.1238 11.4092L11.7926 10.4094ZM9.89355 13.628C10.1067 13.2729 9.99149 12.8122 9.6363 12.5991C9.28112 12.3859 8.82042 12.5011 8.60731 12.8563L8.24318 13.4632C7.44335 14.7962 8.40358 16.4922 9.95817 16.4922H10.7504C11.1646 16.4922 11.5004 16.1564 11.5004 15.7422C11.5004 15.328 11.1646 14.9922 10.7504 14.9922H9.95817C9.56952 14.9922 9.32946 14.5682 9.52942 14.2349L9.89355 13.628ZM14.3673 12.5988C14.012 12.8117 13.8965 13.2723 14.1094 13.6276L14.4734 14.2352C14.673 14.5685 14.433 14.9922 14.0445 14.9922H13.2504C12.8362 14.9922 12.5004 15.328 12.5004 15.7422C12.5004 16.1564 12.8362 16.4922 13.2504 16.4922H14.0445C15.5984 16.4922 16.5588 14.7974 15.7602 13.4644L15.3962 12.8567C15.1833 12.5014 14.7227 12.3859 14.3673 12.5988Z"/>
-</svg>`;
 
 function esc(s: string): string {
   return s.replace(/"/g, "&quot;");
@@ -168,7 +161,7 @@ app.innerHTML = `
   <div class="desktop">
     <div class="desktop-icons">
       <div class="desktop-icon">
-        <span class="desktop-icon-img">${RECYCLE_BIN}</span>
+        <span class="desktop-icon-img">${RECYCLE_BIN_ICON}</span>
         <span class="desktop-icon-label">Recycle Bin</span>
       </div>
     </div>
@@ -190,7 +183,7 @@ app.innerHTML = `
               <path d="M1 3h14M1 8h14M1 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
             </svg>
           </button>
-          <span class="app-icon">${oneNoteLogo(true)}</span>
+          <span class="app-icon">${ONENOTE_ICON}</span>
           <span class="titlebar-text">${NOTEBOOK} - OneNote</span>
         </div>
         <div class="titlebar-controls">
@@ -270,7 +263,7 @@ app.innerHTML = `
           ${WINDOWS_LOGO}
         </button>
         <button class="task-icon onenote-task" title="OneNote">
-          <span class="onenote-task-icon">${oneNoteLogo()}</span>
+          <span class="onenote-task-icon">${ONENOTE_ICON}</span>
           <span class="task-indicator"></span>
         </button>
         <button class="task-icon theme-btn" title="Toggle light / dark mode">
@@ -502,13 +495,27 @@ function runTypewriter(): void {
     `<span class="dots"><i></i><i></i><i></i></span>` +
     `<span class="type-hint">(${touch ? "tap anywhere" : "type anything"})</span>`;
 
-  const begin = () => {
+  const detach = () => {
     removeEventListener("pointerdown", begin);
     removeEventListener("touchstart", begin);
     removeEventListener("keydown", begin);
     cancelTyping = null;
-    if (run !== typeRun) return; // navigated away before clicking
+  };
 
+  const begin = (e: Event) => {
+    if (run !== typeRun) {
+      detach(); // navigated away before interacting
+      return;
+    }
+    // Only a real interaction with the OneNote window counts: not the
+    // wallpaper, not the taskbar, and not while the window is closed.
+    if (win.classList.contains("hidden")) return;
+    if (e.type !== "keydown") {
+      const target = e.target as HTMLElement | null;
+      if (!target?.closest?.("#onenote-window")) return;
+    }
+
+    detach();
     unlockAudio();
     el.classList.remove("waiting");
     el.classList.add("typing");
@@ -560,11 +567,7 @@ function runTypewriter(): void {
   addEventListener("pointerdown", begin);
   addEventListener("touchstart", begin, { passive: true });
   addEventListener("keydown", begin);
-  cancelTyping = () => {
-    removeEventListener("pointerdown", begin);
-    removeEventListener("touchstart", begin);
-    removeEventListener("keydown", begin);
-  };
+  cancelTyping = detach;
 }
 
 /** Photo column first, prose beside it — images lead, text supports. */

@@ -119,17 +119,25 @@ body {
 }
 
 .desktop-icon-img {
+  transition: transform 0.16s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.desktop-icon:active .desktop-icon-img {
+  transform: scale(0.82);
+}
+
+.desktop-icon-img {
   display: block;
-  width: 32px;
-  height: 32px;
-  color: #eaf3fb;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
 }
 
 .bin-icon {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .desktop-icon-label {
@@ -295,6 +303,7 @@ body {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .titlebar-text {
@@ -1356,6 +1365,16 @@ body {
 
 .task-icon:active {
   background: rgba(255, 255, 255, 0.06);
+}
+
+/* Windows 11 press behaviour: the icon dips while the button is held and
+   springs back on release. The running-app indicator stays put. */
+.task-icon > :not(.task-indicator) {
+  transition: transform 0.16s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.task-icon:active > :not(.task-indicator) {
+  transform: scale(0.8);
 }
 
 .win-logo {
