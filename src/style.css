@@ -119,8 +119,17 @@ body {
 }
 
 .desktop-icon-img {
-  font-size: 30px;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+  display: block;
+  width: 32px;
+  height: 32px;
+  color: #eaf3fb;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+.bin-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .desktop-icon-label {
@@ -278,8 +287,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
 }
 
 .onenote-logo {
@@ -1350,15 +1359,9 @@ body {
 }
 
 .win-logo {
-  display: grid;
-  grid-template-columns: 9px 9px;
-  grid-template-rows: 9px 9px;
-  gap: 1.5px;
-}
-
-.win-logo span {
-  background: #4cc2ff;
-  border-radius: 1px;
+  display: block;
+  width: 21px;
+  height: 21px;
 }
 
 .onenote-task-icon {

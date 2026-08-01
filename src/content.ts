@@ -174,7 +174,7 @@ export const CONTENT: Record<string, NoteContent> = {
       },
       {
         src: "/images/research-2.png",
-        caption: "Walking through our future direction for the research",
+        caption: "Walking through future plans for further research",
       },
     ],
     mediaFooter: `
