@@ -120,7 +120,7 @@ export const CONTENT: Record<string, NoteContent> = {
           <div class="xp-body">
             <div class="xp-head">
               <span class="xp-org">Siemens Healthineers</span>
-              <span class="xp-date">Jun 2025 &ndash; Present</span>
+              <span class="xp-date">Jun 2026 &ndash; Present</span>
             </div>
             <div class="xp-role">Software Engineer Intern</div>
             <p class="xp-desc">Building enterprise-grade agents and codebase intelligence systems for
