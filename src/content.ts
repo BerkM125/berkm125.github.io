@@ -246,7 +246,8 @@ export const CONTENT: Record<string, NoteContent> = {
         <li><a href="${GITHUB}/Farmer-Insights" target="_blank" rel="noopener"><strong>Demeter</strong></a>
         &mdash; enterprise-grade agricultural insights for small farmers, pairing satellite crop health
         analysis with soil monitoring and live commodity pricing.
-        <strong>Top 10 of 400 projects mention</strong>, CalHacks 12.0 Social Impact subtrack.
+        <strong>Honorable mention at CalHacks 12.0</strong> &mdash; a Social Impact subtrack judge
+        personally ranked it among the panel's top 10 of 400 projects.
         <a href="https://devpost.com/software/demeter-so268i" target="_blank" rel="noopener">Devpost</a></li>
 
         <li><a href="https://github.com/refact0r/dubflow" target="_blank" rel="noopener"><strong>Dubflow</strong></a>
